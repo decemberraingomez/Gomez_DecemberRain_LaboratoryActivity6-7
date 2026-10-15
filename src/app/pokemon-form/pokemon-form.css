@@ -16,7 +16,18 @@ h2 {
 form {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-  gap: 0.75rem;
+  gap: 0.9rem;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+label {
+  font-size: 0.85rem;
+  font-weight: 700;
 }
 
 input {
@@ -33,53 +44,79 @@ input:focus {
 }
 
 button {
-  grid-column: 1 / -1;
-  padding: 0.8rem;
+  padding: 0.7rem 1.1rem;
   border: none;
-  border-radius: 10px;
-  background: #ca3b3b;
+  border-radius: 5px;
   color: #fff;
-  font-size: 1.05rem;
+  font-size: 1rem;
   font-weight: bold;
   cursor: pointer;
   transition: background 0.2s, transform 0.1s;
 }
 
-button:hover:not(:disabled) {
-  background: #a02a2a;
-  transform: translateY(-1px);
-}
-
 button:disabled {
-  background: #d9b5b5;
+  background: #d9b5b5 !important;
   cursor: not-allowed;
 }
 
+.actions {
+  grid-column: 1 / -1;
+  display: flex;
+  gap: 0.75rem;
+}
+
+.btn-submit { background: #ca3b3b; flex: 1; }
+.btn-submit:hover:not(:disabled) { background: #a02a2a; }
+
+.btn-cancel { background: #777; }
+.btn-cancel:hover { background: #555; }
+
 .team {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   gap: 1rem;
 }
 
 .card {
-  background: #fcfff0;
-  border: 3px solid #ffcb05;
-  border-radius: 14px;
+  border: 3px solid #000000;
+  border-radius: 10px;
   padding: 1rem;
   text-align: center;
-  transition: transform 0.2s;
+  transition: transform 0.2s, border-color 0.2s;
+}
+
+.card.editing {
+  border-color: #cc0000;
+  box-shadow: 0 0 0 4px rgba(204, 0, 0, 0.2);
 }
 
 .card h3 {
   margin: 0 0 0.4rem;
-  color: #ca3b3b;
+  color: #000000;
 }
 
 .card p {
-  margin: 0;
+  margin: 0 0 0.8rem;
   color: #444;
   font-weight: 600;
 }
+
+.card-actions {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: center;
+}
+
+.card-actions button {
+  padding: 0.4rem 0.8rem;
+  font-size: 0.9rem;
+}
+
+.btn-edit { background: #3b4cca; }
+.btn-edit:hover { background: #2a37a0; }
+
+.btn-delete { background: #cc0000; }
+.btn-delete:hover { background: #9e0000; }
 
 .empty {
   grid-column: 1 / -1;
