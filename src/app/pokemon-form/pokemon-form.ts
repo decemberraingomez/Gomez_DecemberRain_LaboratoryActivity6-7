@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Pokemon } from '../pokemon';
 
@@ -9,7 +9,7 @@ import { Pokemon } from '../pokemon';
   templateUrl: './pokemon-form.html',
   styleUrl: './pokemon-form.css',
 })
-export class PokemonForm {
+export class PokemonForm implements OnInit {
   private formBuilder = inject(FormBuilder);
   pokemonService = inject(Pokemon);
 
@@ -19,6 +19,10 @@ export class PokemonForm {
     level: [1, [Validators.required, Validators.min(1)]],
     nature: ['', Validators.required],
   });
+
+  ngOnInit() {
+    this.pokemonService.fetchPokemon();
+  }
 
   onSubmit() {
     if (this.pokemonForm.valid) {

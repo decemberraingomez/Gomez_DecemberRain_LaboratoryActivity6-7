@@ -28,8 +28,8 @@ input {
 
 input:focus {
   outline: none;
-  border-color: #3b4cca;
-  box-shadow: 0 0 0 3px rgba(59, 76, 202, 0.2);
+  border-color: #ca3b3b;
+  box-shadow: 0 0 0 3px rgba(202, 59, 59, 0.2);
 }
 
 button {
@@ -37,7 +37,7 @@ button {
   padding: 0.8rem;
   border: none;
   border-radius: 10px;
-  background: #3b4cca;
+  background: #ca3b3b;
   color: #fff;
   font-size: 1.05rem;
   font-weight: bold;
@@ -46,12 +46,12 @@ button {
 }
 
 button:hover:not(:disabled) {
-  background: #2a37a0;
+  background: #a02a2a;
   transform: translateY(-1px);
 }
 
 button:disabled {
-  background: #b5b9d9;
+  background: #d9b5b5;
   cursor: not-allowed;
 }
 
@@ -62,7 +62,7 @@ button:disabled {
 }
 
 .card {
-  background: linear-gradient(145deg, #fff8dc, #ffe680);
+  background: #fcfff0;
   border: 3px solid #ffcb05;
   border-radius: 14px;
   padding: 1rem;
@@ -70,13 +70,9 @@ button:disabled {
   transition: transform 0.2s;
 }
 
-.card:hover {
-  transform: translateY(-4px) rotate(-1deg);
-}
-
 .card h3 {
   margin: 0 0 0.4rem;
-  color: #3b4cca;
+  color: #ca3b3b;
 }
 
 .card p {
