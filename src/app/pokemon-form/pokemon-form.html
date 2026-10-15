@@ -1,11 +1,36 @@
 <section class="panel">
-  <h2>Add a Pokémon</h2>
+  <h2>{{ editingId() ? 'Update Pokémon' : 'Register Pokémon' }}</h2>
+
   <form [formGroup]="pokemonForm" (ngSubmit)="onSubmit()">
-    <input formControlName="name" placeholder="Pokemon Name">
-    <input formControlName="type" placeholder="Type">
-    <input type="number" formControlName="level" placeholder="Level">
-    <input formControlName="nature" placeholder="Nature">
-    <button type="submit" [disabled]="!pokemonForm.valid">Add to Pokedex</button>
+    <div class="field">
+      <label for="name">Pokémon Name</label>
+      <input id="name" type="text" formControlName="name" placeholder="e.g. Pikachu">
+    </div>
+
+    <div class="field">
+      <label for="type">Type</label>
+      <input id="type" type="text" formControlName="type" placeholder="e.g. Electric">
+    </div>
+
+    <div class="field">
+      <label for="level">Level</label>
+      <input id="level" type="number" formControlName="level">
+    </div>
+
+    <div class="field">
+      <label for="nature">Nature</label>
+      <input id="nature" type="text" formControlName="nature" placeholder="e.g. Jolly">
+    </div>
+
+    <div class="actions">
+      <button type="submit" class="btn-submit" [disabled]="pokemonForm.invalid">
+        {{ editingId() ? 'Confirm Update' : 'Add to Pokedex' }}
+      </button>
+
+      @if (editingId()) {
+        <button type="button" class="btn-cancel" (click)="cancelEdit()">Cancel</button>
+      }
+    </div>
   </form>
 </section>
 
@@ -13,9 +38,13 @@
   <h2>Gary's Winning Team</h2>
   <div class="team">
     @for (p of pokemonService.pokemonList(); track p._id) {
-      <div class="card">
+      <div class="card" [class.editing]="editingId() === p._id">
         <h3>{{ p.name }} (Lvl {{ p.level }})</h3>
         <p>{{ p.type }} | {{ p.nature }}</p>
+        <div class="card-actions">
+          <button type="button" class="btn-edit" (click)="startEdit(p)">Edit</button>
+          <button type="button" class="btn-delete" (click)="deletePokemon(p._id)">Release</button>
+        </div>
       </div>
     } @empty {
       <p class="empty">No Pokemon recorded.</p>
