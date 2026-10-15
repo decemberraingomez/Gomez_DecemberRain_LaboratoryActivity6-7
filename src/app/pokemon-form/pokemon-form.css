@@ -1,0 +1,93 @@
+.panel {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 1.5rem 2rem;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+}
+
+h2 {
+  margin: 0 0 1rem;
+  color: #cc0000;
+  border-bottom: 3px solid #ffcb05;
+  padding-bottom: 0.4rem;
+}
+
+form {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 0.75rem;
+}
+
+input {
+  padding: 0.7rem 0.9rem;
+  border: 2px solid #d9d9d9;
+  border-radius: 10px;
+  font-size: 1rem;
+}
+
+input:focus {
+  outline: none;
+  border-color: #3b4cca;
+  box-shadow: 0 0 0 3px rgba(59, 76, 202, 0.2);
+}
+
+button {
+  grid-column: 1 / -1;
+  padding: 0.8rem;
+  border: none;
+  border-radius: 10px;
+  background: #3b4cca;
+  color: #fff;
+  font-size: 1.05rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.1s;
+}
+
+button:hover:not(:disabled) {
+  background: #2a37a0;
+  transform: translateY(-1px);
+}
+
+button:disabled {
+  background: #b5b9d9;
+  cursor: not-allowed;
+}
+
+.team {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
+  gap: 1rem;
+}
+
+.card {
+  background: linear-gradient(145deg, #fff8dc, #ffe680);
+  border: 3px solid #ffcb05;
+  border-radius: 14px;
+  padding: 1rem;
+  text-align: center;
+  transition: transform 0.2s;
+}
+
+.card:hover {
+  transform: translateY(-4px) rotate(-1deg);
+}
+
+.card h3 {
+  margin: 0 0 0.4rem;
+  color: #3b4cca;
+}
+
+.card p {
+  margin: 0;
+  color: #444;
+  font-weight: 600;
+}
+
+.empty {
+  grid-column: 1 / -1;
+  color: #777;
+  font-style: italic;
+  text-align: center;
+}
