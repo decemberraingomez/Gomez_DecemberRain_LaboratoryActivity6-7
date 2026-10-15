@@ -34,3 +34,15 @@ app.post('/api/pokemon', async (req, res) => {
   await pokemon.save();
   res.send(pokemon); console.log("Added new pokemon:", pokemon);
 });
+
+// DELETE: remove a pokemon by its MongoDB _id
+app.delete('/api/pokemon/:id', async (req, res) => {
+  await Pokemon.findByIdAndDelete(req.params.id);
+  res.sendStatus(204); // 204 = success, no content to send back
+});
+
+// PUT: update a pokemon by its MongoDB _id
+app.put('/api/pokemon/:id', async (req, res) => {
+  const updated = await Pokemon.findByIdAndUpdate(req.params.id, req.body, { new: true });
+  res.send(updated); // { new: true } returns the updated document
+});
